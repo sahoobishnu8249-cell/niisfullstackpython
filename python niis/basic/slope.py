@@ -1,0 +1,11 @@
+#WAP to find slope of a line
+print("enter x1")
+x1=float(input())
+print("enter y1")
+y1=float(input())
+print("enter x2")
+x2=float(input())
+print("enter y2")
+y2=float(input())
+m=(y2-y1)/(x2-x1)
+print("slope=",m)
