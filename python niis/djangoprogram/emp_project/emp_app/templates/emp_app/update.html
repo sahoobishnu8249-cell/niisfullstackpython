@@ -1,0 +1,9 @@
+<h2>Update Employee</h2>
+
+<form method="POST" action="/update/{{emp.id}}/">
+    {% csrf_token %}
+    Name: <input type="text" name="name" value="{{emp.name}}"><br><br>
+    Email: <input type="email" name="email" value="{{emp.email}}"><br><br>
+    Salary: <input type="number" name="salary" value="{{emp.salary}}"><br><br>
+    <button type="submit">Update</button>
+</form>

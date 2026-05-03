@@ -1,0 +1,23 @@
+<html>
+<body>
+	<script>
+		function sical()
+		{
+			var principal=parseInt(document.getElementById("x").value);
+			var rate=parseInt(document.getElementById("y").value);
+			var time=parseInt(document.getElementById("z").value);
+			
+			document.getElementById("a").value=principal*rate*time/100;
+		}
+
+	</script>
+</body>
+<form>
+	enter principal<input type="text" id="x"/><br>
+	enter rate<input type="text" id="y"/><br>
+	enter time<input type="text" id="z"/><br>
+	result<input type="text" id="a"/><br>
+	<input type="button" value="clickme" onclick="sical()" /><br>
+	<input type="reset" value="reset" /><br>
+</form>
+</html>

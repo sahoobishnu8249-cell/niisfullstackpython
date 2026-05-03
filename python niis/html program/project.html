@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            width: 420px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #5a67d8;
+            box-shadow: 0 0 5px rgba(90,103,216,0.4);
+        }
+
+        .options label {
+            display: inline-block;
+            margin-right: 15px;
+            font-weight: normal;
+            margin-top: 5px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"] {
+            background: #5a67d8;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background: #434190;
+        }
+
+        input[type="reset"] {
+            background: #e53e3e;
+            color: white;
+        }
+
+        input[type="reset"]:hover {
+            background: #c53030;
+        }
+
+        .error {
+            color: red;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+
+        .success {
+            color: green;
+            text-align: center;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Registration Form</h2>
+
+        <form id="registerForm">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="t1" placeholder="Enter your name">
+                <div class="error" id="nameError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="t2" rows="3" placeholder="Enter your address"></textarea>
+                <div class="error" id="addressError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="t3" placeholder="Enter password">
+                <div class="error" id="passwordError"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="s1">
+                    <option value="">-- Select Country --</option>
+                    <option value="india">India</option>
+                    <option value="pakistan">Pakistan</option>
+                    <option value="bangladesh">Bangladesh</option>
+                    <option value="srilanka">Sri Lanka</option>
+                </select>
+                <div class="error" id="countryError"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Hobby</label>
+                <div class="options">
+                    <label><input type="checkbox" name="hobby" value="Play"> Play</label>
+                    <label><input type="checkbox" name="hobby" value="Sing"> Sing</label>
+                    <label><input type="checkbox" name="hobby" value="Mobile Use"> Mobile Use</label>
+                </div>
+                <div class="error" id="hobbyError"></div>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="options">
+                    <label><input type="radio" name="gender" value="Male"> Male</label>
+                    <label><input type="radio" name="gender" value="Female"> Female</label>
+                </div>
+                <div class="error" id="genderError"></div>
+            </div>
+
+            <div class="buttons">
+                <input type="submit" value="Register">
+                <input type="reset" value="Clear">
+            </div>
+
+            <div class="success" id="successMessage"></div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("registerForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Get values
+            let name = document.getElementById("name").value.trim();
+            let address = document.getElementById("address").value.trim();
+            let password = document.getElementById("password").value.trim();
+            let country = document.getElementById("country").value;
+            let hobbies = document.querySelectorAll('input[name="hobby"]:checked');
+            let gender = document.querySelector('input[name="gender"]:checked');
+
+            // Error fields
+            document.getElementById("nameError").innerHTML = "";
+            document.getElementById("addressError").innerHTML = "";
+            document.getElementById("passwordError").innerHTML = "";
+            document.getElementById("countryError").innerHTML = "";
+            document.getElementById("hobbyError").innerHTML = "";
+            document.getElementById("genderError").innerHTML = "";
+            document.getElementById("successMessage").innerHTML = "";
+
+            let isValid = true;
+
+            // Name validation
+            if (name === "") {
+                document.getElementById("nameError").innerHTML = "Please enter your name";
+                isValid = false;
+            }
+
+            // Address validation
+            if (address === "") {
+                document.getElementById("addressError").innerHTML = "Please enter your address";
+                isValid = false;
+            }
+
+            // Password validation
+            if (password === "") {
+                document.getElementById("passwordError").innerHTML = "Please enter your password";
+                isValid = false;
+            } else if (password.length < 6) {
+                document.getElementById("passwordError").innerHTML = "Password must be at least 6 characters";
+                isValid = false;
+            }
+
+            // Country validation
+            if (country === "") {
+                document.getElementById("countryError").innerHTML = "Please select your country";
+                isValid = false;
+            }
+
+            // Hobby validation
+            if (hobbies.length === 0) {
+                document.getElementById("hobbyError").innerHTML = "Please select at least one hobby";
+                isValid = false;
+            }
+
+            // Gender validation
+            if (!gender) {
+                document.getElementById("genderError").innerHTML = "Please select gender";
+                isValid = false;
+            }
+
+            // Success
+            if (isValid) {
+                document.getElementById("successMessage").innerHTML = "Registration Successful!";
+                alert("Registration Successful!");
+                document.getElementById("registerForm").reset();
+            }
+        });
+    </script>
+
+</body>
+</html>

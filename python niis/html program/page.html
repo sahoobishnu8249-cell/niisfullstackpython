@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            width: 400px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #444;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        textarea,
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #5a67d8;
+            box-shadow: 0 0 5px rgba(90,103,216,0.5);
+        }
+
+        .options {
+            margin-top: 5px;
+        }
+
+        .options label {
+            display: inline-block;
+            margin-right: 15px;
+            font-weight: normal;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        input[type="submit"],
+        input[type="reset"] {
+            width: 48%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        input[type="submit"] {
+            background: #5a67d8;
+            color: white;
+        }
+
+        input[type="submit"]:hover {
+            background: #434190;
+        }
+
+        input[type="reset"] {
+            background: #e53e3e;
+            color: white;
+        }
+
+        input[type="reset"]:hover {
+            background: #c53030;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Registration Form</h2>
+
+        <form action="" method="post">
+
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="t1" placeholder="Enter your name">
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="t2" rows="3" placeholder="Enter your address"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="t3" placeholder="Enter password">
+            </div>
+
+            <div class="form-group">
+                <label for="country">Country</label>
+                <select id="country" name="s1">
+                    <option value="">-- Select Country --</option>
+                    <option value="india">India</option>
+                    <option value="pak">Pakistan</option>
+                    <option value="ban">Bangladesh</option>
+                    <option value="slr">Sri Lanka</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Hobby</label>
+                <div class="options">
+                    <label><input type="checkbox" name="c1" value="play"> Play</label>
+                    <label><input type="checkbox" name="c2" value="sing"> Sing</label>
+                    <label><input type="checkbox" name="c3" value="mobileuse"> Mobile Use</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Gender</label>
+                <div class="options">
+                    <label><input type="radio" name="r1" value="male"> Male</label>
+                    <label><input type="radio" name="r1" value="female"> Female</label>
+                </div>
+            </div>
+
+            <div class="buttons">
+                <input type="submit" value="Register">
+                <input type="reset" value="Clear">
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Employee</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: #f4f6f9;
+            text-align: center;
+        }
+
+        .container {
+            width: 350px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            padding: 10px 15px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: darkgreen;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h2>Add Employee</h2>
+
+    <form method="POST" onsubmit="return validateForm()">
+        {% csrf_token %}
+
+        Name: <br>
+        <input type="text" id="name" name="name">
+        <div id="nameError" class="error"></div><br>
+
+        Email: <br>
+        <input type="email" id="email" name="email">
+        <div id="emailError" class="error"></div><br>
+
+        Salary: <br>
+        <input type="number" id="salary" name="salary">
+        <div id="salaryError" class="error"></div><br>
+
+        <button type="submit">Save</button>
+    </form>
+
+    <a href="/view/">View Employees</a>
+</div>
+
+<script>
+function validateForm() {
+
+    let name = document.getElementById("name").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let salary = document.getElementById("salary").value.trim();
+
+    let isValid = true;
+
+    // Clear errors
+    document.getElementById("nameError").innerHTML = "";
+    document.getElementById("emailError").innerHTML = "";
+    document.getElementById("salaryError").innerHTML = "";
+
+    // Name validation
+    if (name === "") {
+        document.getElementById("nameError").innerHTML = "Name is required";
+        isValid = false;
+    }
+
+    // Email validation (regex)
+    let pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!pattern.test(email)) {
+        document.getElementById("emailError").innerHTML = "Enter valid email";
+        isValid = false;
+    }
+
+    // Salary validation
+    if (salary === "" || salary <= 0) {
+        document.getElementById("salaryError").innerHTML = "Enter valid salary";
+        isValid = false;
+    }
+
+    return isValid;
+}
+</script>
+
+</body>
+</html>

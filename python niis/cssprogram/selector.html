@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Class selector */
+    .box {
+      border: 2px solid black;
+      padding: 10px;
+    }
+
+    /* ID selector */
+    #title {
+      color: blue;
+    }
+
+    /* Descendant selector */
+    .box p {
+      color: green;
+    }
+    h1, span {
+      background-color: yellow;
+    }
+
+    /* Pseudo-class */
+    a:hover {
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+  <h1 id="title">Welcome</h1>
+
+  <div class="box">
+    <p>This paragraph is inside the box.</p>
+  </div>
+
+  <p>This paragraph is outside the box.</p>
+
+  <a href="#">Hover over me</a>
+
+</body>
+</html>

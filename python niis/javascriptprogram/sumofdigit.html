@@ -1,0 +1,22 @@
+<html>
+<body>
+	<h3>Sum of Digits</h3>
+	<input type="number" id="num">
+	<button onclick="sumDigits()">Find Sum</button>
+	<p id="res"></p>
+
+	<script>
+		function sumDigits(){
+			let n=Number(document.getElementById("num").value);
+			let sum=0;
+			while (n>0){
+				let digit=n%10;
+				sum += digit;
+				n=Math.floor(n/10);
+			}
+			document.getElementById("res").innerHTML="sum="+sum;
+		}
+		
+	</script>
+</body>
+</html>

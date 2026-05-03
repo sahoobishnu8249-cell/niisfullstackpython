@@ -1,0 +1,20 @@
+<html>
+<body>
+	<script>
+		function add()
+		{
+			var no1=parseInt(document.getElementById("t1").value);
+			var no2=parseInt(document.getElementById("t2").value);
+			document.getElementById("t3").value=no1+no2;
+		}
+
+	</script>
+</body>
+<form>
+	enter a number<input type="text" id="t1"/><br>
+	enter another number<input type="text" id="t2"/><br>
+	result<input type="text" id="t3"/><br>
+	<input type="button" value="clickme" onclick="add()" /><br>
+	<input type="reset" value="reset" /><br>
+</form>
+</html>

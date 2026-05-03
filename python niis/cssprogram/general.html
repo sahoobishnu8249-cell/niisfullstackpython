@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* General sibling selector */
+    h1 ~ p {
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Heading</h1>
+
+  <p>This paragraph comes after h1 → will be green</p>
+  <p>This one also comes after h1 → will be green</p>
+
+  <div>
+    <p>This is inside div → will NOT be affected</p>
+  </div>
+  <p>This one also comes after h1 → will be green</p>
+
+
+</body>
+</html>
